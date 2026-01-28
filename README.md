@@ -69,7 +69,7 @@ Open the `.env` file and update the database configuration:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=task_management
+DB_DATABASE=taskmanagemant_db
 DB_USERNAME=root
 DB_PASSWORD=your_password
 ```
