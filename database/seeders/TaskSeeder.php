@@ -28,8 +28,13 @@ class TaskSeeder extends Seeder
             )]);
         }
 
-        // Create tasks for each user
+        // Create tasks for each user (only if they don't already exist)
         foreach ($users as $user) {
+            // Check if user already has tasks, if so skip seeding
+            if (Task::where('user_id', $user->id)->exists()) {
+                continue;
+            }
+
             Task::create([
                 'user_id' => $user->id,
                 'title' => 'Complete Laravel Assessment',
