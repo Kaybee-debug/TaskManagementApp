@@ -26,8 +26,8 @@ Follow these steps to set up and run the application locally:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd taskmanagement
+git clone https://github.com/Kaybee-debug/TaskManagementApp.git
+cd TaskManagementApp
 ```
 
 ### Step 2: Install PHP Dependencies
