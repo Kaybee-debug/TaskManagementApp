@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class TaskSeeder extends Seeder
 {
@@ -18,10 +19,13 @@ class TaskSeeder extends Seeder
         $users = User::all();
         
         if ($users->isEmpty()) {
-            $users = collect([User::factory()->create([
-                'name' => 'Test User',
-                'email' => 'test@example.com',
-            ])]);
+            $users = collect([User::firstOrCreate(
+                ['email' => 'test@example.com'],
+                [
+                    'name' => 'Test User',
+                    'password' => Hash::make('password'),
+                ]
+            )]);
         }
 
         // Create tasks for each user
